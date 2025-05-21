@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements.txt || true
 
       - name: Run SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
+        uses: SonarSource/sonarqube-scan-action@v1
         with:
           projectBaseDir: .
         env:
