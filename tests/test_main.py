@@ -1,5 +1,5 @@
 import unittest
-from main import greet_user, calculate_sum
+from src.main import greet_user, calculate_sum
 
 class TestMain(unittest.TestCase):
     def test_greet_user(self):
