@@ -1,23 +1,19 @@
-def calculate_area(length, width):
-    area = length * width
-    return area
+def greet_user(name: str) -> str:
+    if not name:
+        return "Xin chào, bạn!"
+    return f"Xin chào, {name}!"
 
-def unused_function():
-    # This function is never used
-    pass
+def calculate_sum(a: int, b: int) -> int:
+    return a + b
 
 def main():
-    length = 10
-    width = 5
-    area = calculate_area(length, width)
-    print("Area is:", area)
+    name = input("Nhập tên của bạn: ")
+    print(greet_user(name))
 
-    # Hardcoded password (bad practice - SonarCloud sẽ cảnh báo)
-    password = "123456"
-
-    # Duplicate code example
-    a = 2 + 3
-    b = 2 + 3
+    a = int(input("Nhập số a: "))
+    b = int(input("Nhập số b: "))
+    result = calculate_sum(a, b)
+    print(f"Tổng của {a} và {b} là: {result}")
 
 if __name__ == "__main__":
     main()
