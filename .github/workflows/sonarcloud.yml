@@ -30,5 +30,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v1
         with:
           projectBaseDir: .
+          args: -X
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
