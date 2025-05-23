@@ -31,12 +31,21 @@ jobs:
           coverage run --source=src -m unittest discover -s tests
           coverage xml -o coverage.xml
 
+      - name: Check if coverage.xml exists
+        run: |
+          echo ">> Current directory:"
+          pwd
+          echo ">> Files:"
+          ls -la
+          echo ">> Content of coverage.xml:"
+          cat coverage.xml
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           args: >
             -Dsonar.projectKey=sonarcloud-github
-            -Dsonar.organization=sonarcloud-github
+            -Dsonar.organization=thomascode1210
             -Dsonar.python.coverage.reportPaths=coverage.xml
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
