@@ -33,5 +33,9 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectBaseDir: .
+          args: >
+             -Dsonar.projectKey=sonarcloud-github
+             -Dsonar.organization=thomascode1210
+             -Dsonar.python.coverage.reportPaths=coverage.xml
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
