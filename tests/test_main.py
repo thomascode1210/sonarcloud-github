@@ -1,4 +1,3 @@
-import pytest
 from src.main import greet_user, calculate_sum, main
 from unittest.mock import patch
 
