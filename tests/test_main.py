@@ -1,5 +1,5 @@
 import pytest
-from main import greet_user, calculate_sum, main
+from src.main import greet_user, calculate_sum, main
 from unittest.mock import patch
 
 def test_greet_user_with_name():
