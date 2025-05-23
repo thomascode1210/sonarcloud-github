@@ -5,11 +5,10 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
 
 jobs:
   build:
-    name: Build and analyze
+    name: Build and Analyze
     runs-on: ubuntu-latest
 
     steps:
@@ -18,34 +17,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13.3'
-
+          python-version: '3.13.3' 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install coverage
-          pip install -r requirements.txt || true  
+          pip install pytest pytest-cov
 
-      - name: Run tests and collect coverage
+      - name: Run tests with coverage
         run: |
-          coverage run --source=src -m unittest discover -s tests
-          coverage xml -o coverage.xml
-
-      - name: Check if coverage.xml exists
-        run: |
-          echo ">> Current directory:"
-          pwd
-          echo ">> Files:"
-          ls -la
-          echo ">> Content of coverage.xml:"
-          cat coverage.xml
+          pytest --cov=main --cov-report=xml
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2
+        uses: SonarSource/sonarcloud-github-action@master
         with:
-          args: >
-            -Dsonar.projectKey=thomascode1210_sonarcloud-github
-            -Dsonar.organization=thomascode1210
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+          projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: thomascode1210_sonarcloud-github
+          SONAR_ORGANIZATION: thomascode1210
