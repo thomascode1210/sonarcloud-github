@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Vô hiệu hóa shallow clone để phân tích tốt hơn
+          fetch-depth: 0  
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Cần thiết cho tích hợp GitHub
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
         with:
           projectBaseDir: .
