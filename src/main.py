@@ -11,6 +11,7 @@ def main():
     print(greet_user(name))
 
     a = int(input("Nhập số a: "))
+    a = int(input("Nhập số a: "))
     b = int(input("Nhập số b: "))
     result = calculate_sum(a, b)
     print(f"Tổng của {a} và {b} là: {result}")
