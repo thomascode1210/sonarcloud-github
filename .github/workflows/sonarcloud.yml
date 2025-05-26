@@ -34,5 +34,5 @@ jobs:
           args: >
             -Dsonar.projectKey=thomascode1210_sonarcloud-github
             -Dsonar.organization=thomascode1210
-            -Dsonar.sources=.
+            -Dsonar.sources=src
             -Dsonar.python.version=3.10
