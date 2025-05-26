@@ -24,6 +24,6 @@ jobs:
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.projectKey=thomascode1210_sonarcloud-github
+            -Dsonar.projectKey=sonarcloud-github
             -Dsonar.organization=thomascode1210
             -Dsonar.sources=src
