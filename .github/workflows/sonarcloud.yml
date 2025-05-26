@@ -7,9 +7,19 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - main
-- name: SonarCloud Scan
-  uses: SonarSource/sonarcloud-github-action@master
-  with:
-    projectBaseDir: .
-  env:
-    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Vô hiệu hóa shallow clone để phân tích tốt hơn
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Cần thiết cho tích hợp GitHub
+        with:
+          projectBaseDir: .
