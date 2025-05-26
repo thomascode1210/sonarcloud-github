@@ -22,7 +22,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          projectBaseDir: ./src
+          projectBaseDir: .
           args: >
             -Dsonar.projectKey=thomascode1210_sonarcloud-github
             -Dsonar.organization=thomascode1210
